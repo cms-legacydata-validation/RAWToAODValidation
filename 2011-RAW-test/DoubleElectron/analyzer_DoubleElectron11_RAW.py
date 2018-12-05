@@ -17,7 +17,7 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(20000) )
 
 process.source = cms.Source("PoolSource",
                  fileNames = cms.untracked.vstring('file:reco_DoubleElectron11_AOD.root'),
-                 lumisToProcess = cms.untracked.VLuminosityBlockRange('160431:1-161223:max')
+                 lumisToProcess = cms.untracked.VLuminosityBlockRange('160431:1-160431:151')
                 #firstRun = cms.untracked.uint32(169957),     
                 #firstEvent = cms.untracked.uint32(488034889)
                            )
