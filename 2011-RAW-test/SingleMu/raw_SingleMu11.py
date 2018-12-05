@@ -34,7 +34,6 @@ process.source = cms.Source("PoolSource",
 )
 
 process.options = cms.untracked.PSet(
-
 )
 
 # Production Info
@@ -57,8 +56,6 @@ process.AODoutput = cms.OutputModule("PoolOutputModule",
 )
 
 # Additional statements
-from Configuration.AlCa.GlobalTag import GlobalTag
-#process.GlobalTag = GlobalTag(process.GlobalTag, 'FT_R_53_LV5::All', '')
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/FT_53_LV5_AN1_RUNA.db')
 process.GlobalTag.globaltag = 'FT_53_LV5_AN1::All'
 
