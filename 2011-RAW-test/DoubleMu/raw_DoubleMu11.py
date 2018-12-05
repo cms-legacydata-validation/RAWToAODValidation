@@ -34,7 +34,6 @@ process.source = cms.Source("PoolSource",
 )
 
 process.options = cms.untracked.PSet(
-
 )
 
 # Production Info
@@ -49,7 +48,7 @@ process.configurationMetadata = cms.untracked.PSet(
 process.AODoutput = cms.OutputModule("PoolOutputModule",
     eventAutoFlushCompressedSize = cms.untracked.int32(15728640),
     outputCommands = process.AODEventContent.outputCommands,
-    fileName = cms.untracked.string('reco_DoubleMu1111111111111111111111_AOD.root'),
+    fileName = cms.untracked.string('reco_DoubleMu11_AOD.root'),
     dataset = cms.untracked.PSet(
         filterName = cms.untracked.string(''),
         dataTier = cms.untracked.string('AOD')
@@ -57,8 +56,6 @@ process.AODoutput = cms.OutputModule("PoolOutputModule",
 )
 
 # Additional statements
-from Configuration.AlCa.GlobalTag import GlobalTag
-#process.GlobalTag = GlobalTag(process.GlobalTag, 'FT_R_53_LV5::All', '')
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/FT_53_LV5_AN1_RUNA.db')
 process.GlobalTag.globaltag = 'FT_53_LV5_AN1::All'
 
