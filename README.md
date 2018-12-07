@@ -14,6 +14,26 @@ Apart from the data reconstruction step, a simple comparison code to validate th
 
 The new AOD can be reprocessed from RAW with minor modifications (global tag, input file, commenting out unnecessary steps) to the configuration file.
 
+### Run this code in [2010 CMS Open Data VM](http://opendata.cern.ch/record/250)
+```
+cmsrel CMSSW_4_2_8
+cd CMSSW_4_2_8/src
+cmsenv
+mkdir WorkDir
+cd WorkDir
+git clone git@github.com:cms-legacydata-validation/RAWToAODValidation.git
+cd RAWToAODValidation
+
+#According to the dataset
+cd Electron
+scram b
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A FT_R_42_V10A
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A.db FT_R_42_V10A.db
+ls -l
+ls -l /cvmfs/
+cmsRun raw_DoubleElectron12.py
+```
+
 ## Process for 2010 RAW samples reconstruction test
 
 - Select input RAW sample from the [EOS HTTP Browser](https://eospublichttp01.cern.ch/eos/opendata/cms/Run2010B/). For example, your input can be **root://eospublic.cern.ch//eos/opendata/cms/Run2010B/Electron/RAW/v1/000/146/712/185AE5B4-CAC9-DF11-9DF4-0030487CD6D2.root**
