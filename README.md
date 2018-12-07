@@ -56,13 +56,15 @@ The new AOD can be reprocessed from RAW with minor modifications (global tag, in
        process.GlobalTag.globaltag = 'FT_R_42_V10A::All'
        ```
    4) For the 2010 RAW samples, it  is necessary to remove from the configuration file an EDProducer of the name lumiProducer. For extracting this component is required to replace a sequence, `process.localreco` and to modify a parameter set (PSet) as part of an output module, `AODoutput`. 
+       
        - For editing the sequence: 
              
-             Replace `process.localreco = cms.Sequence(process.trackerlocalreco+process.muonlocalreco+process.calolocalreco+process.castorreco+process.lumiProducer)` with `process.localreco = cms.Sequence(process.trackerlocalreco+process.muonlocalreco+process.calolocalreco+process.castorreco)`
+         Replace `process.localreco = cms.Sequence(process.trackerlocalreco+process.muonlocalreco+process.calolocalreco+process.castorreco+process.lumiProducer)` with `process.localreco = cms.Sequence(process.trackerlocalreco+process.muonlocalreco+process.calolocalreco+process.castorreco)`
         
         - For editing the OutputModule: 
-              
-              Change the option `keep` for `drop` in the PSet: 
+           
+          Change the option `keep` for `drop` in the PSet: 
+           
            ```ruby
            process.AODoutput = cms.OutputModule("PoolOutputModule",
            eventAutoFlushCompressedSize = cms.untracked.int32(15728640),
