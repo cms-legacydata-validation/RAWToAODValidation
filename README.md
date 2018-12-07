@@ -16,9 +16,31 @@ Apart from the data reconstruction step, a simple comparison code to validate th
 
 The new AOD can be reprocessed from RAW with minor modifications (global tag, input file, commenting out unnecessary steps) to the configuration file.
 
+# Run this code in [CMS Open Data VM](https://github.com/cernopendata/opendata.cern.ch/issues/2426)
+
+```
+cmsrel CMSSW_5_3_32
+cd CMSSW_5_3_32/src
+cmsenv
+mkdir WorkDir
+cd WorkDir
+git clone git@github.com:cms-legacydata-validation/RAWToAODValidation.git
+cd RAWToAODValidation
+
+#According to the dataset
+cd DoubleElectron
+scram b
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT53_V21A_AN6_FULL FT53_V21A_AN6
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT53_V21A_AN6_FULL.db FT53_V21A_AN6_FULL.db
+ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT53_V21A_AN6_FULL FT53_V21A_AN6_FULL
+ls -l
+ls -l /cvmfs/
+cmsRun raw_DoubleElectron12.py
+```
+
 ## Process for 2012 RAW samples reconstruction test:
 
-- Select input RAW sample from the [EOS HTTP Browser](https://eospublichttp01.cern.ch/eos/opendata/cms/Run2011A/). For example, your input can be ***root://eospublic.cern.ch//eos/opendata/cms/Run2012B/DoubleMuParked/RAW/v1/000/194/210/1A57ABB8-A89E-E111-BA74-003048F117B4.root*
+- Select input RAW sample from the [EOS HTTP Browser](https://eospublichttp01.cern.ch/eos/opendata/cms/Run2011A/). For example, your input can be **root://eospublic.cern.ch//eos/opendata/cms/Run2012B/DoubleMuParked/RAW/v1/000/194/210/1A57ABB8-A89E-E111-BA74-003048F117B4.root**
 - The reconstruction will be executed in the new VM (use #2426) for which a `CMSSW_5_3_32/src/WorkDir` area will be created.
 - To create the configuration files (after `cmsenv`) run: 
 
