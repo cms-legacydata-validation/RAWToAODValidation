@@ -51,7 +51,7 @@ The new AOD can be reprocessed from RAW with minor modifications (global tag, in
        Selected run ranges for each of the RAW samples were stated above.
 - Run analyzer using `cmsRun`, and view histograms by writing in the command line `root -l` followed by the name of your analyzer's output.  
 
-Process to compare results with 2011 Open Data AOD files:
+## Process to compare results with 2011 Open Data AOD files:
 
 - Search for the corresponding dataset of the RAW sample in its AOD format in [DAS](https://cmsweb.cern.ch/das/). For example, for the dataset`/DoubleElectron/Run2011A-v1/RAW` the matching one would be `/DoubleElectron/Run2011A-12Oct2013-v1/AOD`.
 
