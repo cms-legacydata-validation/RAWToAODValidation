@@ -1,4 +1,4 @@
-# Validation code for reprocessing AOD from 2010 - 2012 RAW samples
+# Validation code for reprocessing AOD from 2010 RAW samples
 
 The objective is to compare the outputs of reprocessed AOD files for 2010-2012 RAW samples with [CMS Open Data VM](https://github.com/cernopendata/opendata.cern.ch/issues/2426) results.
 
@@ -8,22 +8,7 @@ Selected 2010 RAW datasets:
 - ``/MinimumBias/Run2010B-v1/RAW``
 - ``/Mu/Run2010B-v1/RAW``
 - ``/Electron/Run2010B-v1/RAW``
-- ``/Jet/Run2010B-v1/RAW``
-
-Selected 2011 RAW datasets:
-- ``/SingleMu/Run2011A-v1/RAW``
-- ``/SingleElectron/Run2011A-v1/RAW`` 
-- ``/DoubleElectron/Run2011A-v1/RAW``
-- ``/DoubleMu/Run2011A-v1/RAW``
-- ``/Jet/Run2011A-v1/RAW`` 
-
-Selected 2012 RAW datasets:
-- ``/MinimumBias/Run2012B-v1/RAW`` 
-- ``/SingleMu/Run2012B-v1/RAW`` 
-- ``/SingleElectron/Run2012B-v1/RAW``
-- ``/DoubleMuParked/Run2012B-v1/RAW``
-- ``/DoubleElectron/Run2012B-v1/RAW`` 
-- ``/JetHT/Run2012B-v1/RAW`` 
+- ``/Jet/Run2010B-v1/RAW`` 
 
 Apart from the data reconstruction step, a simple comparison code to validate the reprocessing step on the Open Data VM is performed. Later we can compare the resulting file (newly rereconstructed from the RAW data samples) and the original AOD (available on the Open Data portal). The analyzer code loops over different physics objects (tracks, electrons, muons, photons, jets, taus and missing et) and fills histograms with P, pt, eta and phi of these objects.
 
