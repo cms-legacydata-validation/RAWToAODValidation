@@ -82,7 +82,9 @@ The new AOD can be reprocessed from RAW with minor modifications (global tag, in
 - As an analyzer the [validation code to plot basic physics objects from AOD](http://opendata.cern.ch/record/464) from the CERN Open Data Portal works successfully apart from minor changes such as:
    1) Change input name as `'file:reco_RAW2DIGI_L1Reco_RECO_USER.root'` or whichever your local AOD root file is called from the output of the reconstruction.
    2) Modify luminosity range accordingly (get lumi sections and runs in your input file using `edmLumisInFile.py`). For example: 
+   
         `lumisToProcess = cms.untracked.VLuminosityBlockRange('163589:1-165121:max')`
+        
        Selected run ranges for each of the RAW samples were stated above.
    3) Comment out all tau related components in the `src/PhysicsObjectsHistos.cc`
    4) Remove the file `python/demoanalyzer_cfi.py` as is not needed in the process. 
@@ -94,6 +96,7 @@ The new AOD can be reprocessed from RAW with minor modifications (global tag, in
 - Search for the corresponding dataset of the RAW sample in its AOD format in [DAS](https://cmsweb.cern.ch/das/). For example, for the dataset`/Electron/Run2010B-v1/RAW` the matching one would be `/Electron/Run2010B-Apr21ReReco-v1/AOD`.
 
 - Once the appropriate dataset is found (using [DAS](https://cmsweb.cern.ch/das/)), search for files that contain the runs specified before. 
+    
     `file dataset= /Electron/Run2010B-Apr21ReReco-v1/AOD run=146712`
 
 - Verify the luminosity of each file in the list and select those that are used in the RAW sample file (using `edmLumisInFile.py`). 
