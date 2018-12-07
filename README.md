@@ -20,7 +20,9 @@ The new AOD can be reprocessed from RAW with minor modifications (global tag, in
 - Select input RAW sample from the [EOS HTTP Browser](https://eospublichttp01.cern.ch/eos/opendata/cms/Run2011A/). For example, your input can be **root://eospublic.cern.ch//eos/opendata/cms/Run2011A/DoubleElectron/RAW/v1/000/160/431/080D15C9-FF4D-E011-9484-0030487C7828.root**
 - The reconstruction will be executed in the new VM (use #2426) for which a `CMSSW_5_3_32/src/WorkDir` area will be created.
 - To create the configuration files (after `cmsenv`) run: 
-`cmsDriver.py reco -s RAW2DIGI,L1Reco,RECO,USER:EventFilter/HcalRawToDigi/hcallaserhbhehffilter2012_cff.hcallLaser2012Filter --data --conditions FT_R_53_LV5::All --eventcontent AOD --customise Configuration/DataProcessing/RecoTLR.customisePrompt --no_exec --python reco_cmsdriver2011.py`
+
+   ```cmsDriver.py reco -s RAW2DIGI,L1Reco,RECO,USER:EventFilter/HcalRawToDigi/hcallaserhbhehffilter2012_cff.hcallLaser2012Filter --data --conditions FT_R_53_LV5::All --eventcontent AOD --customise Configuration/DataProcessing/RecoTLR.customisePrompt --no_exec --python reco_cmsdriver2011.py```
+
 - In the default configuration file some parameters must be corrected, such as:
    1) Change maxEvents parameter (default is 1) to -1, to process all events: 
        ```process.maxEvents = cms.untracked.PSet(input = cms.untracked.int32(-1))```
