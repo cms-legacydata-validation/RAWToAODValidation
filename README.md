@@ -21,7 +21,8 @@ The new AOD can be reprocessed from RAW with minor modifications (global tag, in
 - The reconstruction will be executed in the [CMS VM image for 2010](http://opendata.cern.ch/record/250) Data for which a `CMSSW_4_2_8/src/WorkDir` area will be created.
 
 - To create the configuration files (after `cmsenv`) run: 
-`cmsDriver.py reco -s RAW2DIGI,L1Reco,RECO --data --conditions FT_R_42_V10A::All --eventcontent AOD --customise Configuration/GlobalRuns/reco_TLR_42X.customisePPData --no_exec --python reco_cmsdriver2010.py`
+
+   ```cmsDriver.py reco -s RAW2DIGI,L1Reco,RECO --data --conditions FT_R_42_V10A::All --eventcontent AOD --customise Configuration/GlobalRuns/reco_TLR_42X.customisePPData --no_exec --python reco_cmsdriver2010.py```
 
 - In the default configuration file some parameters must be corrected, such as:
    1) Change maxEvents parameter (default is 1) to -1, to process all events: 
