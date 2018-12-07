@@ -17,7 +17,6 @@ Apart from the data reconstruction step, a simple comparison code to validate th
 The new AOD can be reprocessed from RAW with minor modifications (global tag, input file, commenting out unnecessary steps) to the configuration file.
 
 ### Run this code in [CMS Open Data VM](https://github.com/cernopendata/opendata.cern.ch/issues/2426)
-
 ```
 cmsrel CMSSW_5_3_32
 cd CMSSW_5_3_32/src
