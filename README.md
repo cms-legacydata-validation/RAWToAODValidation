@@ -21,7 +21,7 @@ cd CMSSW_4_2_8/src
 cmsenv
 mkdir WorkDir
 cd WorkDir
-git clone git@github.com:cms-legacydata-validation/RAWToAODValidation.git
+git clone git://github.com/cms-legacydata-validation/RAWToAODValidation.git
 cd RAWToAODValidation
 
 #According to the dataset
