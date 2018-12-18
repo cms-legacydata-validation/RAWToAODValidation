@@ -21,11 +21,11 @@ cd CMSSW_4_2_8/src
 cmsenv
 mkdir WorkDir
 cd WorkDir
-git clone git://github.com/cms-legacydata-validation/RAWToAODValidation.git
+git clone -b 2010 git://github.com/cms-legacydata-validation/RAWToAODValidation.git
 cd RAWToAODValidation
 
 #According to the dataset
-cd Electron
+cd code/Electron
 scram b
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A FT_R_42_V10A
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A.db FT_R_42_V10A.db
