@@ -57,8 +57,10 @@ process.AODoutput = cms.OutputModule("PoolOutputModule",
 # Additional output definition
 
 # Other statements
-from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, 'FT53_V21A_AN6::All', '')
+# from Configuration.AlCa.GlobalTag import GlobalTag
+# process.GlobalTag = GlobalTag(process.GlobalTag, 'FT53_V21A_AN6::All', '')
+process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/FT53_V21A_AN6_FULL.db')
+process.GlobalTag.globaltag = 'FT53_V21A_AN6::All'
 
 # Path and EndPath definitions
 process.raw2digi_step = cms.Path(process.RawToDigi)
