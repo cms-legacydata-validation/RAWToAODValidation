@@ -31,7 +31,7 @@ ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A FT_R_42_V10A
 ln -sf /cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A.db FT_R_42_V10A.db
 ls -l
 ls -l /cvmfs/
-cmsRun raw_DoubleElectron10.py
+cmsRun raw_Electron10.py
 ```
 
 ## Process for 2010 RAW samples reconstruction test
