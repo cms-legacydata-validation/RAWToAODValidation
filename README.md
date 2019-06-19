@@ -62,15 +62,14 @@ cmsRun raw_Electron10.py
        process.GlobalTag.globaltag = 'FT_R_42_V10A::All'
        ```
    4) For the 2010 RAW samples, it  is necessary to remove from the configuration file an EDProducer of the name lumiProducer. Add the following lines to the end of the configuration file: 
-           
-           ```ruby
-           #modify the localreco sequence so it does not require luminosity production
-           process.localreco.remove(process.lumiProducer)
+        ```ruby
+        #modify the localreco sequence so it does not require luminosity production
+        process.localreco.remove(process.lumiProducer)
 
-           #for consistency, remove products from event content
-           process.AODoutput.outputCommands.remove('keep LumiSummary_lumiProducer_*_*')
-           process.AODoutput.outputCommands.append('drop LumiSummary_lumiProducer_*_*')
-           ```
+        #for consistency, remove products from event content
+        process.AODoutput.outputCommands.remove('keep LumiSummary_lumiProducer_*_*')
+        process.AODoutput.outputCommands.append('drop LumiSummary_lumiProducer_*_*')
+        ```
 - Proceed to do `cmsRun` to your configuration file (Run time could be up to 12 hours)
 
 - As an output of the reconstruction, we would get a root file such as "**reco_RAW2DIGI_L1Reco_RECO_USER.root**". This file can be transfered to EOS, since it can be a large file, following these [instructions](https://cern.service-now.com/service-portal/article.do?n=KB0001998). 
