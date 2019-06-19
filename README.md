@@ -61,25 +61,15 @@ cmsRun raw_Electron10.py
        process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/FT_R_42_V10A.db')
        process.GlobalTag.globaltag = 'FT_R_42_V10A::All'
        ```
-   4) For the 2010 RAW samples, it  is necessary to remove from the configuration file an EDProducer of the name lumiProducer. For extracting this component is required to replace a sequence, `process.localreco` and to modify a parameter set (PSet) as part of an output module, `AODoutput`. 
-       
-       - For editing the sequence: 
-             
-         Replace `process.localreco = cms.Sequence(process.trackerlocalreco+process.muonlocalreco+process.calolocalreco+process.castorreco+process.lumiProducer)` with `process.localreco = cms.Sequence(process.trackerlocalreco+process.muonlocalreco+process.calolocalreco+process.castorreco)`
-        
-        - For editing the OutputModule: 
-           
-          Change the option `keep` for `drop` in the PSet: 
+   4) For the 2010 RAW samples, it  is necessary to remove from the configuration file an EDProducer of the name lumiProducer. Add the following lines to the end of the configuration file: 
            
            ```ruby
-           process.AODoutput = cms.OutputModule("PoolOutputModule",
-           eventAutoFlushCompressedSize = cms.untracked.int32(15728640),
-           fileName = cms.untracked.string('reco_RAW2DIGI_L1Reco_RECO_USER.root'),
-           outputCommands = cms.untracked.vstring('drop *', 
-           …
-           'keep LumiSummary_lumiProducer_*_*’, 
-           …
-           )
+           #modify the localreco sequence so it does not require luminosity production
+           process.localreco.remove(process.lumiProducer)
+
+           #for consistency, remove products from event content
+           process.AODoutput.outputCommands.remove('keep LumiSummary_lumiProducer_*_*')
+           process.AODoutput.outputCommands.append('drop LumiSummary_lumiProducer_*_*')
            ```
 - Proceed to do `cmsRun` to your configuration file (Run time could be up to 12 hours)
 

@@ -21,7 +21,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(-1)
+    input = cms.untracked.int32(1000)
 )
 
 # Input source
@@ -79,6 +79,11 @@ process = customisePPData(process)
 
 # End of customisation functions
 
-#del process.lumiProducer
+#modify the localreco sequence so it does not require luminosity production
+process.localreco.remove(process.lumiProducer)
+
+#for consistency, remove products from event content
+process.AODoutput.outputCommands.remove('keep LumiSummary_lumiProducer_*_*')
+process.AODoutput.outputCommands.append('drop LumiSummary_lumiProducer_*_*')
 
 
